@@ -99,4 +99,21 @@ add_student()
 view_students()
 search_student()
 update_student()
+# Delete student
+
+
+def delete_student():
+    view_students()
+    id = input("Enter student ID to delete: ")
+
+    cursor.execute("DELETE FROM students WHERE id=?", (id,))
+    conn.commit()
+    print("✅ Student deleted successfully!")
+
+    # Run
+add_student()
+view_students()
+search_student()
+update_student()
+delete_student()
 conn.close()
