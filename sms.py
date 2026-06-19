@@ -14,5 +14,21 @@ CREATE TABLE IF NOT EXISTS students (
 )
 """)
 conn.commit()
-print("Database ready!")
+
+# Insert student
+
+
+def add_student():
+    name = input("Enter name  : ")
+    age = input("Enter age   : ")
+    grade = input("Enter grade : ")
+
+    cursor.execute("INSERT INTO students (name, age, grade) VALUES (?, ?, ?)",
+                   (name, age, grade))
+    conn.commit()
+    print("✅ Student added successfully!")
+
+
+# Run
+add_student()
 conn.close()
